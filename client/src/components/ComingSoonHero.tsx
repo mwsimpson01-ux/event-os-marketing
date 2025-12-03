@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
 
 export default function ComingSoonHero() {
   return (
@@ -36,16 +35,6 @@ export default function ComingSoonHero() {
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-foreground">
             Event<span className="text-primary">.</span>OS
           </h1>
-        </motion.div>
-
-        <motion.div
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/50 text-accent-foreground text-sm font-medium mb-6"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <Sparkles className="w-4 h-4" />
-          <span className="uppercase tracking-widest text-xs font-semibold text-muted-foreground">Launching Soon</span>
         </motion.div>
 
         <motion.h2 
