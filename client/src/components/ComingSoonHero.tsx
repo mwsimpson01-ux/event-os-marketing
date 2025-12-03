@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Calendar, Users, BarChart3, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 export default function ComingSoonHero() {
   return (
@@ -54,7 +54,7 @@ export default function ComingSoonHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          The Operating System for Event Planning
+          A New Operating System for Modern Workflows
         </motion.h2>
 
         <motion.p 
@@ -63,25 +63,13 @@ export default function ComingSoonHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          Streamline your events from start to finish. Manage guests, vendors, budgets, 
-          and schedules in one powerful platform designed for modern event professionals.
+          A unified platform built to elevate how teams plan, collaborate, and execute.
         </motion.p>
-
-        <motion.div 
-          className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-12"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          <FeaturePill icon={Calendar} label="Smart Scheduling" />
-          <FeaturePill icon={Users} label="Guest Management" />
-          <FeaturePill icon={BarChart3} label="Budget Tracking" />
-        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
         >
           <StatusCard />
         </motion.div>
@@ -91,21 +79,12 @@ export default function ComingSoonHero() {
         className="absolute bottom-6 left-0 right-0 text-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.8 }}
+        transition={{ duration: 0.5, delay: 0.7 }}
       >
         <p className="text-xs text-muted-foreground">
           &copy; {new Date().getFullYear()} Event.OS. All rights reserved.
         </p>
       </motion.footer>
-    </div>
-  );
-}
-
-function FeaturePill({ icon: Icon, label }: { icon: typeof Calendar; label: string }) {
-  return (
-    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-secondary-foreground text-sm font-medium">
-      <Icon className="w-4 h-4 text-primary" />
-      <span>{label}</span>
     </div>
   );
 }
@@ -124,22 +103,9 @@ function StatusCard() {
         }}
       />
       
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 rounded-full bg-accent animate-pulse" />
-        <span className="text-xs uppercase tracking-widest font-semibold text-muted-foreground">
-          In Development
-        </span>
-      </div>
-      
-      <p className="text-sm text-muted-foreground mb-4">
-        We're putting the finishing touches on something special. 
-        Event.OS will transform how you plan and manage events.
+      <p className="text-sm sm:text-base text-foreground text-center">
+        A new foundation for event technology is coming soon.
       </p>
-      
-      <div className="flex items-center gap-2 text-sm">
-        <span className="font-medium text-foreground">Expected Launch:</span>
-        <span className="text-primary font-semibold">Q1 2025</span>
-      </div>
     </div>
   );
 }
