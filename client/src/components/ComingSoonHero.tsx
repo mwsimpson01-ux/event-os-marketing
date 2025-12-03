@@ -82,7 +82,7 @@ export default function ComingSoonHero() {
         transition={{ duration: 0.5, delay: 0.7 }}
       >
         <p className="text-xs text-muted-foreground">
-          &copy; {new Date().getFullYear()} Event.OS. All rights reserved.
+          {new Date().getFullYear()} Event.OS. All rights reserved.
         </p>
       </motion.footer>
     </div>
