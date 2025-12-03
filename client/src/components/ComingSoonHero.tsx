@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function ComingSoonHero() {
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center px-5 sm:px-6 md:px-8 py-12 overflow-hidden">
+    <div className="relative h-screen overflow-hidden flex flex-col items-center justify-center px-5 sm:px-6 md:px-8">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div 
           className="absolute -top-20 -left-20 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 opacity-50 sm:opacity-60"
