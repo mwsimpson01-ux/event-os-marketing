@@ -75,16 +75,6 @@ export default function ComingSoonHero() {
         </motion.div>
       </motion.div>
 
-      <motion.footer 
-        className="absolute bottom-6 left-0 right-0 text-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.7 }}
-      >
-        <p className="text-xs text-muted-foreground">
-          {new Date().getFullYear()} Event.OS. All rights reserved.
-        </p>
-      </motion.footer>
     </div>
   );
 }
