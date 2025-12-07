@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import logoImage from "@assets/Logo_1765138882477.png";
 
 export default function ComingSoonHero() {
   return (
@@ -32,9 +33,12 @@ export default function ComingSoonHero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-            Event<span className="text-primary">.</span>OS
-          </h1>
+          <img 
+            src={logoImage} 
+            alt="Event.OS" 
+            className="h-12 sm:h-14 md:h-16 lg:h-20 w-auto"
+            data-testid="img-logo"
+          />
         </motion.div>
 
         <motion.h2 
