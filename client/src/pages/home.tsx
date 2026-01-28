@@ -27,9 +27,9 @@ export default function Home() {
       </header>
 
       <main>
-        <section className="pt-12 pb-10 sm:pt-14 sm:pb-12 lg:pt-16 lg:pb-12">
+        <section className="pt-12 pb-10 sm:pt-14 sm:pb-12 lg:pt-14 lg:pb-10">
           <div className={pageContainer}>
-            <div className="max-w-3xl">
+            <div className="max-w-3xl xl:max-w-[30ch]">
               <div className="flex flex-wrap gap-2">
                 <span className="max-w-full rounded-full border border-orange-100 bg-orange-50 px-3 py-1.5 text-sm font-medium text-orange-700">
                   In development
@@ -39,7 +39,7 @@ export default function Home() {
                 </span>
               </div>
 
-              <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight text-gray-900 sm:text-5xl lg:text-[56px] lg:leading-[1.02]">
+              <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight text-gray-900 sm:text-5xl lg:text-[52px] lg:leading-[1.02]">
                 The operating system for modern corporate events.
               </h1>
               <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-gray-600 sm:text-base">
@@ -67,18 +67,21 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} mt-10 sm:mt-12`}>
+        <div className={`${pageContainer} my-10 sm:my-12`}>
           <div className="border-t border-slate-100" />
         </div>
 
-        <section id="why" className="py-12 sm:py-14 lg:py-16">
+        <section id="why" className="py-12 sm:py-14 lg:py-14">
           <div className={pageContainer}>
             <div className="flex flex-col">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">WHY EVENT.OS</p>
-                <h2 className="mt-2 text-3xl font-semibold leading-[1.1] tracking-tight text-gray-900 sm:text-4xl">
+                <h2 className="mt-2 text-3xl font-semibold leading-[1.1] tracking-tight text-gray-900 sm:text-[34px]">
                   Built for real-world event operations.
                 </h2>
+                <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-gray-600">
+                  Stop reconciling tools. Run the event in one place.
+                </p>
               </div>
             <div className="mt-8 grid auto-rows-fr grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
               {[
@@ -103,7 +106,7 @@ export default function Home() {
                   key={item.title}
                   className="h-full rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6"
                 >
-                  <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
+                  <h3 className="text-[17px] font-semibold text-gray-900">{item.title}</h3>
                   <p className="mt-2 text-[15px] leading-6 text-slate-600">{item.body}</p>
                 </div>
               ))}
@@ -112,29 +115,28 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} mt-10 sm:mt-12`}>
+        <div className={`${pageContainer} my-10 sm:my-12`}>
           <div className="border-t border-slate-100" />
         </div>
 
-        <section id="product" className="bg-gray-50/60 py-12 sm:py-14 lg:py-16">
+        <section id="product" className="bg-gray-50/60 py-12 sm:py-14 lg:py-14">
           <div className={pageContainer}>
             <div className="flex flex-col">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">DESIGNED DIFFERENTLY</p>
-                <h2 className="mt-2 text-3xl font-semibold leading-[1.1] tracking-tight text-gray-900 sm:text-4xl">
-                  Planner-led by design.
+                <h2 className="mt-2 text-3xl font-semibold leading-[1.1] tracking-tight text-gray-900 sm:text-[34px]">
+                  Designed for how planners actually work.
                 </h2>
                 <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-gray-600">
                   Event.OS unifies planning, execution, and collaboration in one system — without forcing teams to
                   change how they work.
                 </p>
               </div>
-              <div className="mt-8 grid auto-rows-fr grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
+              <div className="mt-8 grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
                 {[
                   {
-                    title: "Planner-led by design",
-                    body:
-                      "Planners stay in control, with vendors and partners collaborating in the same system.",
+                    title: "Planner control, shared visibility",
+                    body: "Planners stay in control while vendors and partners collaborate in the same system.",
                   },
                   {
                     title: "One system of record",
@@ -142,14 +144,12 @@ export default function Home() {
                       "No more reconciling spreadsheets, emails, and timelines. Everyone works from one source of truth.",
                   },
                   {
-                    title: "Built for real event complexity",
-                    body:
-                      "Multi-day programs, layered stakeholders, and last-minute changes — built for how events unfold.",
+                    title: "Multi-day complexity, handled",
+                    body: "Multi-day programs, layered stakeholders, and last-minute changes — built for how events unfold.",
                   },
                   {
-                    title: "Collaboration without chaos",
-                    body:
-                      "Share what vendors need without exposing everything — or losing control.",
+                    title: "Vendor collaboration with guardrails",
+                    body: "Share what vendors need without exposing everything — or losing control.",
                   },
                   {
                     title: "Enterprise-ready foundation",
@@ -161,15 +161,12 @@ export default function Home() {
                       "One update reflects across plans, timelines, and execution — without manual rework.",
                   },
                 ].map((item) => (
-                  <div
-                    key={item.title}
-                    className="h-full rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6"
-                  >
-                    <div className="flex items-start gap-3">
-                      <span className="mt-2 h-2 w-2 rounded-full bg-orange-500" />
-                      <h3 className="text-lg font-semibold leading-6 text-gray-900">{item.title}</h3>
+                  <div key={item.title} className="flex items-start gap-3 rounded-xl border border-slate-200/70 bg-white p-4 sm:p-5">
+                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-orange-500" />
+                    <div>
+                      <h3 className="text-[17px] font-semibold leading-6 text-gray-900">{item.title}</h3>
+                      <p className="mt-2 text-[15px] leading-6 text-slate-600">{item.body}</p>
                     </div>
-                    <p className="mt-2 text-[15px] leading-6 text-slate-600">{item.body}</p>
                   </div>
                 ))}
               </div>
@@ -177,16 +174,16 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} mt-10 sm:mt-12`}>
+        <div className={`${pageContainer} my-10 sm:my-12`}>
           <div className="border-t border-slate-100" />
         </div>
 
-        <section id="early-access" className="py-12 sm:py-14 lg:py-16">
+        <section id="early-access" className="py-12 sm:py-14 lg:py-14">
           <div className={pageContainer}>
             <div className="grid items-start gap-10 lg:grid-cols-2">
             <div className="max-w-xl">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">EARLY ACCESS</p>
-              <h2 className="mt-2 text-3xl font-semibold leading-[1.1] tracking-tight text-gray-900 sm:text-4xl">
+              <h2 className="mt-2 text-3xl font-semibold leading-[1.1] tracking-tight text-gray-900 sm:text-[34px]">
                 Join the waitlist.
               </h2>
               <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-gray-600">
