@@ -1,8 +1,16 @@
+import { createClient } from "@supabase/supabase-js";
 import { useState } from "react";
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string | undefined;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
+const supabase =
+  supabaseUrl && supabaseAnonKey ? createClient(supabaseUrl, supabaseAnonKey) : null;
 
 export default function Home() {
   const [submitted, setSubmitted] = useState(false);
   const [honeypot, setHoneypot] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const pageContainer = "mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8";
 
   return (
@@ -209,10 +217,42 @@ export default function Home() {
               ) : (
                 <form
                   className="space-y-4"
-                  onSubmit={(event) => {
+                  onSubmit={async (event) => {
                     event.preventDefault();
                     if (honeypot) return;
-                    setSubmitted(true);
+                    setSubmitError(null);
+
+                    if (!supabase) {
+                      setSubmitError("Waitlist is temporarily unavailable. Please try again shortly.");
+                      return;
+                    }
+
+                    const form = event.currentTarget;
+                    const formData = new FormData(form);
+                    const payload = {
+                      name: String(formData.get("name") ?? "").trim(),
+                      email: String(formData.get("email") ?? "").trim(),
+                      company: String(formData.get("company") ?? "").trim(),
+                      role: String(formData.get("role") ?? "").trim(),
+                    };
+
+                    if (!payload.name || !payload.email || !payload.company || !payload.role) {
+                      setSubmitError("Please complete all fields.");
+                      return;
+                    }
+
+                    try {
+                      setSubmitting(true);
+                      const { error } = await supabase.from("waitlist").insert(payload);
+                      if (error) {
+                        setSubmitError("We couldn’t submit your request. Please try again.");
+                        return;
+                      }
+                      form.reset();
+                      setSubmitted(true);
+                    } finally {
+                      setSubmitting(false);
+                    }
                   }}
                 >
                   <label className="grid gap-2 text-sm font-medium text-gray-700">
@@ -278,11 +318,15 @@ export default function Home() {
                   </div>
 
                   <button
-                    className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-xl bg-orange-500 text-base font-semibold text-white shadow-sm transition hover:bg-orange-400"
+                    className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-xl bg-orange-500 text-base font-semibold text-white shadow-sm transition hover:bg-orange-400 disabled:cursor-not-allowed disabled:opacity-70"
                     type="submit"
+                    disabled={submitting}
                   >
-                    Join the waitlist
+                    {submitting ? "Submitting..." : "Join the waitlist"}
                   </button>
+                  {submitError ? (
+                    <p className="text-sm text-red-600">{submitError}</p>
+                  ) : null}
                 </form>
               )}
             </div>
