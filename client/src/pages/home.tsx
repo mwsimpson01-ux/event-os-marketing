@@ -26,8 +26,8 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="pt-12">
-        <section className="pt-10 pb-8 sm:pt-12 sm:pb-10 lg:pt-14 lg:pb-12">
+      <main className="pt-8">
+        <section className="pt-8 pb-6 sm:pt-10 sm:pb-8 lg:pt-12 lg:pb-10">
           <div className={pageContainer}>
             <div className="max-w-3xl">
               <div className="flex flex-wrap gap-2">
@@ -67,11 +67,11 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} my-6 sm:my-8`}>
+        <div className={`${pageContainer} my-4 sm:my-6`}>
           <div className="border-t border-slate-100" />
         </div>
 
-        <section id="why" className="py-10 sm:py-12 lg:py-12">
+        <section id="why" className="py-8 sm:py-10 lg:py-10">
           <div className={pageContainer}>
             <div className="flex flex-col">
               <div>
@@ -80,7 +80,7 @@ export default function Home() {
                   Built for real-world event operations.
                 </h2>
               </div>
-            <div className="mt-6 grid auto-rows-fr grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
+            <div className="mt-5 grid auto-rows-fr grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
               {[
                 {
                   title: "One source of truth",
@@ -109,11 +109,11 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} my-6 sm:my-8`}>
+        <div className={`${pageContainer} my-4 sm:my-6`}>
           <div className="border-t border-slate-100" />
         </div>
 
-        <section id="product" className="bg-gray-50/60 py-10 sm:py-12 lg:py-12">
+        <section id="product" className="bg-gray-50/60 py-8 sm:py-10 lg:py-10">
           <div className={pageContainer}>
             <div className="flex flex-col">
               <div>
@@ -126,7 +126,7 @@ export default function Home() {
                   change how they work.
                 </p>
               </div>
-              <div className="mt-6 grid auto-rows-fr grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
+              <div className="mt-5 grid auto-rows-fr grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
                 {[
                   {
                     title: "Planner-led by design",
@@ -171,11 +171,11 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} my-6 sm:my-8`}>
+        <div className={`${pageContainer} my-4 sm:my-6`}>
           <div className="border-t border-slate-100" />
         </div>
 
-        <section id="early-access" className="py-10 sm:py-12 lg:py-12">
+        <section id="early-access" className="py-8 sm:py-10 lg:py-10">
           <div className={pageContainer}>
             <div className="grid items-start gap-10 lg:grid-cols-2">
             <div className="max-w-xl">
