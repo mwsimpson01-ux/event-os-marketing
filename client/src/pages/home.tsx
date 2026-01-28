@@ -27,9 +27,9 @@ export default function Home() {
       </header>
 
       <main className="pt-14">
-        <section className="py-10 sm:py-12 lg:pt-16">
+        <section className="pt-12 pb-10 sm:pt-14 sm:pb-12 lg:pt-16 lg:pb-14">
           <div className={pageContainer}>
-            <div className="max-w-[24ch] sm:max-w-xl lg:max-w-2xl">
+            <div className="max-w-3xl">
               <div className="flex flex-wrap gap-2">
                 <span className="max-w-full rounded-full border border-orange-100 bg-orange-50 px-3 py-1.5 text-sm font-medium text-orange-700">
                   In development
@@ -39,14 +39,14 @@ export default function Home() {
                 </span>
               </div>
 
-              <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
+              <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight text-gray-900 sm:text-5xl lg:text-[56px] lg:leading-[1.02]">
                 The operating system for modern corporate events.
               </h1>
               <p className="mt-4 text-[15px] leading-relaxed text-gray-600 sm:text-base">
                 Plan, align, and execute complex events in one calm system — built for how events actually run.
               </p>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <a
                   className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-orange-500 text-base font-semibold text-white shadow-sm transition hover:bg-orange-400 sm:w-auto sm:px-6"
                   href="#early-access"
@@ -60,18 +60,18 @@ export default function Home() {
                   Request investor deck
                 </a>
               </div>
-              <p className="mt-4 text-sm text-gray-500">
+              <p className="mt-3 text-sm text-gray-500">
                 Currently in development. Early access will be invite-only.
               </p>
             </div>
           </div>
         </section>
 
-        <div className={`${pageContainer} my-6 sm:my-8`}>
-          <div className="border-t border-gray-200/60" />
+        <div className={`${pageContainer} my-10 sm:my-12`}>
+          <div className="border-t border-slate-100" />
         </div>
 
-        <section id="why" className="py-10 sm:py-12">
+        <section id="why" className="py-12 sm:py-14 lg:py-16">
           <div className={pageContainer}>
             <div className="flex flex-col">
               <div>
@@ -80,7 +80,7 @@ export default function Home() {
                   Built for real-world event operations.
                 </h2>
               </div>
-            <div className="mt-6 grid auto-rows-fr grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
+            <div className="mt-8 grid auto-rows-fr grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
               {[
                 {
                   title: "One source of truth",
@@ -109,11 +109,11 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} my-6 sm:my-8`}>
-          <div className="border-t border-gray-200/60" />
+        <div className={`${pageContainer} my-10 sm:my-12`}>
+          <div className="border-t border-slate-100" />
         </div>
 
-        <section id="product" className="bg-gray-50/60 py-10 sm:py-12">
+        <section id="product" className="bg-gray-50/60 py-12 sm:py-14 lg:py-16">
           <div className={pageContainer}>
             <div className="flex flex-col">
               <div>
@@ -126,7 +126,7 @@ export default function Home() {
                   change how they work.
                 </p>
               </div>
-              <div className="mt-6 grid auto-rows-fr grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
+              <div className="mt-8 grid auto-rows-fr grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
                 {[
                   {
                     title: "Planner-led by design",
@@ -171,11 +171,11 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} my-6 sm:my-8`}>
-          <div className="border-t border-gray-200/60" />
+        <div className={`${pageContainer} my-10 sm:my-12`}>
+          <div className="border-t border-slate-100" />
         </div>
 
-        <section id="early-access" className="py-10 sm:py-12">
+        <section id="early-access" className="py-12 sm:py-14 lg:py-16">
           <div className={pageContainer}>
             <div className="grid items-start gap-10 lg:grid-cols-2">
             <div className="max-w-xl">
