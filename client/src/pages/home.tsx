@@ -27,7 +27,7 @@ export default function Home() {
       </header>
 
       <main className="pt-14">
-        <section className="py-12 sm:py-16 lg:pt-20">
+        <section className="py-10 sm:py-12 lg:pt-16">
           <div className={pageContainer}>
             <div className="max-w-[24ch] sm:max-w-xl lg:max-w-2xl">
               <div className="flex flex-wrap gap-2">
@@ -67,11 +67,11 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} my-8 sm:my-10`}>
+        <div className={`${pageContainer} my-6 sm:my-8`}>
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="why" className="py-12 sm:py-16">
+        <section id="why" className="py-10 sm:py-12">
           <div className={pageContainer}>
             <div className="flex flex-col">
               <div>
@@ -109,11 +109,11 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} my-8 sm:my-10`}>
+        <div className={`${pageContainer} my-6 sm:my-8`}>
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="product" className="bg-gray-50/60 py-12 sm:py-16">
+        <section id="product" className="bg-gray-50/60 py-10 sm:py-12">
           <div className={pageContainer}>
             <div className="flex flex-col">
               <div>
@@ -171,11 +171,11 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} my-8 sm:my-10`}>
+        <div className={`${pageContainer} my-6 sm:my-8`}>
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="early-access" className="py-12 sm:py-16">
+        <section id="early-access" className="py-10 sm:py-12">
           <div className={pageContainer}>
             <div className="grid items-start gap-10 lg:grid-cols-2">
             <div className="max-w-xl">
