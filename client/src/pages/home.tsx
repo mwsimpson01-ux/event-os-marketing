@@ -70,11 +70,11 @@ export default function Home() {
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="why" className="py-8 sm:py-10">
+        <section id="why" className="py-7 sm:py-9">
           <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-10">
             <div className="flex flex-col gap-6">
             <div>
-              <p className="mb-2 text-[15px] font-semibold uppercase tracking-[0.2em] text-orange-600">WHY EVENT.OS</p>
+              <p className="mb-2 text-base font-semibold uppercase tracking-[0.18em] text-orange-600">WHY EVENT.OS</p>
               <h2 className="text-2xl font-semibold leading-tight text-gray-900 sm:text-3xl">
                 Built for real-world event operations.
               </h2>
@@ -112,11 +112,11 @@ export default function Home() {
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="product" className="bg-gray-50/60 py-8 sm:py-10">
+        <section id="product" className="bg-gray-50/60 py-7 sm:py-9">
           <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-10">
             <div className="flex flex-col gap-6">
               <div>
-                <p className="mb-2 text-[15px] font-semibold uppercase tracking-[0.2em] text-orange-600">DESIGNED DIFFERENTLY</p>
+                <p className="mb-2 text-base font-semibold uppercase tracking-[0.18em] text-orange-600">DESIGNED DIFFERENTLY</p>
                 <h2 className="text-2xl font-semibold leading-tight text-gray-900 sm:text-3xl">
                   Planner-led by design.
                 </h2>
@@ -174,11 +174,11 @@ export default function Home() {
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="early-access" className="py-8 sm:py-10">
+        <section id="early-access" className="py-7 sm:py-9">
           <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-10">
             <div className="grid items-start gap-6 lg:grid-cols-[5fr_7fr]">
             <div>
-              <p className="mb-2 text-[15px] font-semibold uppercase tracking-[0.2em] text-orange-600">EARLY ACCESS</p>
+              <p className="mb-2 text-base font-semibold uppercase tracking-[0.18em] text-orange-600">EARLY ACCESS</p>
               <h2 className="text-2xl font-semibold leading-tight text-gray-900 sm:text-3xl">Join the waitlist.</h2>
               <p className="mt-2 max-w-[560px] text-[15px] leading-relaxed text-gray-600">
                 Early access is rolling out in phases. Join the waitlist to be notified when invitations begin.
