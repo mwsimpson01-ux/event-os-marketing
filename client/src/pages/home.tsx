@@ -27,7 +27,7 @@ export default function Home() {
       </header>
 
       <main>
-        <section className="pt-10 pb-8 sm:pt-12 sm:pb-10 lg:pt-12 lg:pb-10">
+        <section className="pt-10 pb-10 sm:pt-12 sm:pb-10 lg:pt-12 lg:pb-10">
           <div className={pageContainer}>
             <div className="max-w-3xl">
               <div className="flex flex-wrap gap-2">
@@ -60,7 +60,7 @@ export default function Home() {
                   Request investor deck
                 </a>
               </div>
-              <p className="mt-3 text-sm text-gray-500">
+              <p className="mt-4 text-sm text-gray-500">
                 Currently in development. Early access will be invite-only.
               </p>
             </div>
@@ -68,7 +68,7 @@ export default function Home() {
         </section>
 
         <div className={`${pageContainer} my-6 sm:my-8`}>
-          <div className="border-t border-slate-100" />
+          <div className="border-t border-gray-200/60" />
         </div>
 
         <section id="why" className="py-10 sm:py-12 lg:py-12">
@@ -83,7 +83,7 @@ export default function Home() {
                   Stop reconciling tools. Run the event in one place.
                 </p>
               </div>
-            <div className="mt-6 grid auto-rows-fr grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
+            <div className="mt-6 grid auto-rows-fr grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2">
               {[
                 {
                   title: "One source of truth",
@@ -116,7 +116,7 @@ export default function Home() {
         </section>
 
         <div className={`${pageContainer} my-6 sm:my-8`}>
-          <div className="border-t border-slate-100" />
+          <div className="border-t border-gray-200/60" />
         </div>
 
         <section id="product" className="bg-gray-50/60 py-10 sm:py-12 lg:py-12">
@@ -132,7 +132,7 @@ export default function Home() {
                   change how they work.
                 </p>
               </div>
-              <div className="mt-6 grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
+              <div className="mt-6 grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2">
                 {[
                   {
                     title: "Planner control, shared visibility",
@@ -175,12 +175,12 @@ export default function Home() {
         </section>
 
         <div className={`${pageContainer} my-6 sm:my-8`}>
-          <div className="border-t border-slate-100" />
+          <div className="border-t border-gray-200/60" />
         </div>
 
         <section id="early-access" className="py-10 sm:py-12 lg:py-12">
           <div className={pageContainer}>
-            <div className="grid items-start gap-10 lg:grid-cols-2">
+            <div className="grid items-start gap-8 lg:grid-cols-2">
             <div className="max-w-xl">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">EARLY ACCESS</p>
               <h2 className="mt-2 text-3xl font-semibold leading-[1.1] tracking-tight text-gray-900 sm:text-[34px]">
@@ -278,7 +278,7 @@ export default function Home() {
                   </div>
 
                   <button
-                    className="mt-6 inline-flex h-11 w-full items-center justify-center rounded-xl bg-orange-500 text-base font-semibold text-white shadow-sm transition hover:bg-orange-400"
+                    className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-xl bg-orange-500 text-base font-semibold text-white shadow-sm transition hover:bg-orange-400"
                     type="submit"
                   >
                     Join the waitlist
@@ -292,7 +292,7 @@ export default function Home() {
       </main>
 
       <footer className="border-t border-gray-100 bg-white">
-          <div className={`${pageContainer} flex flex-col gap-4 py-10 text-sm text-gray-500 md:flex-row md:items-center md:justify-between`}>
+          <div className={`${pageContainer} flex flex-col gap-4 py-8 text-sm text-gray-500 md:flex-row md:items-center md:justify-between`}>
           <div className="flex flex-wrap gap-4">
             <a className="transition hover:text-gray-900" href="/privacy">
               Privacy
