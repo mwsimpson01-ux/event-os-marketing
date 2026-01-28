@@ -3,11 +3,12 @@ import { useState } from "react";
 export default function Home() {
   const [submitted, setSubmitted] = useState(false);
   const [honeypot, setHoneypot] = useState("");
+  const pageContainer = "mx-auto w-full max-w-[1120px] px-4 sm:px-6";
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
-      <header className="sticky top-0 z-20 border-b border-gray-100 bg-white/80 backdrop-blur">
-        <div className="mx-auto flex w-full max-w-[1240px] items-center justify-between px-6 py-3 lg:px-10">
+      <header className="sticky top-0 z-20 border-b border-slate-100 bg-white/80 backdrop-blur">
+        <div className={`${pageContainer} flex items-center justify-between py-3`}>
           <a href="/" className="flex items-center">
             <img src="/logo.png" alt="Event.OS" className="h-7 w-auto" />
           </a>
@@ -25,61 +26,61 @@ export default function Home() {
         </div>
       </header>
 
-      <main>
-        <section className="py-8 sm:py-10">
-          <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-10">
-            <div className="max-w-[640px]">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="rounded-full border border-orange-100 bg-orange-50 px-2.5 py-1 text-xs font-medium text-orange-700">
+      <main className="pt-14">
+        <section className="py-12 sm:py-16">
+          <div className={pageContainer}>
+            <div className="max-w-[24ch] sm:max-w-[28ch]">
+              <div className="flex flex-wrap gap-2">
+                <span className="max-w-full rounded-full border border-orange-100 bg-orange-50 px-3 py-1.5 text-sm font-medium text-orange-700">
                   In development
                 </span>
-                <span className="rounded-full border border-gray-200/80 bg-white px-2.5 py-1 text-xs font-medium text-gray-600">
+                <span className="max-w-full rounded-full border border-gray-200/80 bg-white px-3 py-1.5 text-sm font-medium text-gray-600">
                   Invite-only early access
                 </span>
               </div>
 
-            <h1 className="mt-6 text-3xl font-semibold leading-tight tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
-              The operating system for modern corporate events.
-            </h1>
-            <p className="mt-4 max-w-[560px] text-[15px] leading-relaxed text-gray-600 sm:text-base">
-              Plan, align, and execute complex events in one calm system — built for how events actually run.
-            </p>
+              <h1 className="mt-4 text-[40px] font-semibold leading-[1.05] tracking-tight text-gray-900 sm:text-5xl">
+                The operating system for modern corporate events.
+              </h1>
+              <p className="mt-4 text-[15px] leading-relaxed text-gray-600 sm:text-base">
+                Plan, align, and execute complex events in one calm system — built for how events actually run.
+              </p>
 
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <a
-                className="inline-flex h-11 items-center justify-center rounded-xl bg-orange-500 px-5 text-sm font-semibold text-white shadow-sm transition hover:bg-orange-400"
-                href="#early-access"
-              >
-                Join the waitlist
-              </a>
-              <a
-                className="inline-flex h-11 items-center justify-center rounded-xl border border-gray-200 bg-white px-5 text-sm font-semibold text-gray-700 shadow-sm transition hover:border-gray-300"
-                href="mailto:megan@event-os.io"
-              >
-                Request investor deck
-              </a>
-            </div>
-            <p className="mt-4 text-sm text-gray-500">
-              Currently in development. Early access will be invite-only.
-            </p>
+              <div className="mt-6 grid gap-3">
+                <a
+                  className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-orange-500 text-base font-semibold text-white shadow-sm transition hover:bg-orange-400"
+                  href="#early-access"
+                >
+                  Join the waitlist
+                </a>
+                <a
+                  className="inline-flex h-12 w-full items-center justify-center rounded-xl border border-gray-200 bg-white text-base font-semibold text-gray-700 shadow-sm transition hover:border-gray-300"
+                  href="mailto:megan@event-os.io"
+                >
+                  Request investor deck
+                </a>
+              </div>
+              <p className="mt-4 text-sm text-gray-500">
+                Currently in development. Early access will be invite-only.
+              </p>
             </div>
           </div>
         </section>
 
-        <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-10 my-3 sm:my-4">
+        <div className={`${pageContainer} my-8 sm:my-10`}>
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="why" className="py-7 sm:py-9">
-          <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-10">
-            <div className="flex flex-col gap-6">
+        <section id="why" className="py-12 sm:py-16">
+          <div className={pageContainer}>
+            <div className="flex flex-col">
             <div>
-              <p className="mb-2 text-base font-semibold uppercase tracking-[0.18em] text-orange-600">WHY EVENT.OS</p>
-              <h2 className="text-2xl font-semibold leading-tight text-gray-900 sm:text-3xl">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">WHY EVENT.OS</p>
+              <h2 className="mb-4 text-3xl font-semibold leading-tight text-gray-900 sm:text-4xl">
                 Built for real-world event operations.
               </h2>
             </div>
-            <div className="grid auto-rows-fr grid-cols-1 gap-5 md:grid-cols-2">
+            <div className="mt-6 grid auto-rows-fr grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
               {[
                 {
                   title: "One source of truth",
@@ -98,9 +99,9 @@ export default function Home() {
                   body: "Built to meet enterprise expectations from day one.",
                 },
               ].map((item) => (
-                <div key={item.title} className="h-full rounded-2xl border border-gray-200/80 bg-white p-6 shadow-sm">
-                  <h3 className="min-h-[2.25rem] text-base font-semibold text-gray-900">{item.title}</h3>
-                  <p className="mt-2 text-sm text-gray-600">{item.body}</p>
+                <div key={item.title} className="h-full rounded-2xl border border-gray-200/80 bg-white p-5 shadow-sm sm:p-6">
+                  <h3 className="text-lg font-semibold leading-6 text-gray-900">{item.title}</h3>
+                  <p className="mt-2 text-[15px] leading-6 text-slate-600">{item.body}</p>
                 </div>
               ))}
             </div>
@@ -108,24 +109,24 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-10 my-3 sm:my-4">
+        <div className={`${pageContainer} my-8 sm:my-10`}>
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="product" className="bg-gray-50/60 py-7 sm:py-9">
-          <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-10">
-            <div className="flex flex-col gap-6">
+        <section id="product" className="bg-gray-50/60 py-12 sm:py-16">
+          <div className={pageContainer}>
+            <div className="flex flex-col">
               <div>
-                <p className="mb-2 text-base font-semibold uppercase tracking-[0.18em] text-orange-600">DESIGNED DIFFERENTLY</p>
-                <h2 className="text-2xl font-semibold leading-tight text-gray-900 sm:text-3xl">
+                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">DESIGNED DIFFERENTLY</p>
+                <h2 className="mb-4 text-3xl font-semibold leading-tight text-gray-900 sm:text-4xl">
                   Planner-led by design.
                 </h2>
-                <p className="mt-3 max-w-[640px] text-[15px] leading-relaxed text-gray-600">
+                <p className="max-w-[640px] text-[15px] leading-relaxed text-gray-600">
                   Event.OS unifies planning, execution, and collaboration in one system — without forcing teams to
                   change how they work.
                 </p>
               </div>
-              <div className="grid auto-rows-fr grid-cols-1 gap-5 md:grid-cols-2">
+              <div className="mt-6 grid auto-rows-fr grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
                 {[
                   {
                     title: "Planner-led by design",
@@ -157,12 +158,12 @@ export default function Home() {
                       "One update reflects across plans, timelines, and execution — without manual rework.",
                   },
                 ].map((item) => (
-                  <div key={item.title} className="h-full rounded-2xl border border-gray-200/80 bg-white p-6 shadow-sm">
-                    <div className="flex items-start gap-2">
-                      <span className="mt-[6px] h-1.5 w-1.5 rounded-full bg-orange-400" />
-                      <h3 className="min-h-[2.25rem] text-sm font-semibold text-gray-900">{item.title}</h3>
+                  <div key={item.title} className="h-full rounded-2xl border border-gray-200/80 bg-white p-5 shadow-sm sm:p-6">
+                    <div className="flex items-start gap-3">
+                      <span className="mt-2 h-2 w-2 rounded-full bg-orange-500" />
+                      <h3 className="text-lg font-semibold leading-6 text-gray-900">{item.title}</h3>
                     </div>
-                    <p className="mt-2 text-sm text-gray-600">{item.body}</p>
+                    <p className="mt-2 text-[15px] leading-6 text-slate-600">{item.body}</p>
                   </div>
                 ))}
               </div>
@@ -170,22 +171,22 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-10 my-3 sm:my-4">
+        <div className={`${pageContainer} my-8 sm:my-10`}>
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="early-access" className="py-7 sm:py-9">
-          <div className="mx-auto w-full max-w-[1240px] px-6 lg:px-10">
+        <section id="early-access" className="py-12 sm:py-16">
+          <div className={pageContainer}>
             <div className="grid items-start gap-6 lg:grid-cols-[5fr_7fr]">
             <div>
-              <p className="mb-2 text-base font-semibold uppercase tracking-[0.18em] text-orange-600">EARLY ACCESS</p>
-              <h2 className="text-2xl font-semibold leading-tight text-gray-900 sm:text-3xl">Join the waitlist.</h2>
-              <p className="mt-2 max-w-[560px] text-[15px] leading-relaxed text-gray-600">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">EARLY ACCESS</p>
+              <h2 className="mb-4 text-3xl font-semibold leading-tight text-gray-900 sm:text-4xl">Join the waitlist.</h2>
+              <p className="max-w-[560px] text-[15px] leading-relaxed text-gray-600">
                 Early access is rolling out in phases. Join the waitlist to be notified when invitations begin.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
               {submitted ? (
                 <div className="grid gap-3">
                   <p className="text-sm font-semibold text-gray-900">Thanks for your interest.</p>
@@ -202,48 +203,48 @@ export default function Home() {
                 </div>
               ) : (
                 <form
-                  className="grid gap-4"
+                  className="space-y-4"
                   onSubmit={(event) => {
                     event.preventDefault();
                     if (honeypot) return;
                     setSubmitted(true);
                   }}
                 >
-                  <label className="grid gap-2 text-sm text-gray-700">
+                  <label className="grid gap-2 text-sm font-medium text-gray-700">
                     Name
                     <input
                       required
-                      className="h-11 rounded-xl border border-gray-200 px-3 text-sm shadow-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
+                      className="h-12 w-full rounded-xl border border-gray-200 px-4 text-base shadow-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
                       name="name"
                       type="text"
                       placeholder="Alex Morgan"
                     />
                   </label>
-                  <label className="grid gap-2 text-sm text-gray-700">
+                  <label className="grid gap-2 text-sm font-medium text-gray-700">
                     Email
                     <input
                       required
-                      className="h-11 rounded-xl border border-gray-200 px-3 text-sm shadow-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
+                      className="h-12 w-full rounded-xl border border-gray-200 px-4 text-base shadow-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
                       name="email"
                       type="email"
                       placeholder="alex@company.com"
                     />
                   </label>
-                  <label className="grid gap-2 text-sm text-gray-700">
+                  <label className="grid gap-2 text-sm font-medium text-gray-700">
                     Company
                     <input
                       required
-                      className="h-11 rounded-xl border border-gray-200 px-3 text-sm shadow-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
+                      className="h-12 w-full rounded-xl border border-gray-200 px-4 text-base shadow-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
                       name="company"
                       type="text"
                       placeholder="Company name"
                     />
                   </label>
-                  <label className="grid gap-2 text-sm text-gray-700">
+                  <label className="grid gap-2 text-sm font-medium text-gray-700">
                     Role
                     <select
                       required
-                      className="h-11 rounded-xl border border-gray-200 bg-white px-3 text-sm shadow-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
+                      className="h-12 w-full rounded-xl border border-gray-200 bg-white px-4 pr-10 text-base shadow-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
                       name="role"
                       defaultValue=""
                     >
@@ -272,7 +273,7 @@ export default function Home() {
                   </div>
 
                   <button
-                    className="mt-2 inline-flex h-11 items-center justify-center rounded-xl bg-orange-500 px-5 text-sm font-semibold text-white shadow-sm transition hover:bg-orange-400"
+                    className="mt-6 inline-flex h-12 w-full items-center justify-center rounded-xl bg-orange-500 text-base font-semibold text-white shadow-sm transition hover:bg-orange-400"
                     type="submit"
                   >
                     Join the waitlist
@@ -286,7 +287,7 @@ export default function Home() {
       </main>
 
       <footer className="border-t border-gray-100 bg-white">
-          <div className="mx-auto flex w-full max-w-[1240px] flex-col gap-4 px-6 py-8 text-sm text-gray-500 lg:px-10 md:flex-row md:items-center md:justify-between">
+          <div className={`${pageContainer} flex flex-col gap-4 py-8 text-sm text-gray-500 md:flex-row md:items-center md:justify-between`}>
           <div className="flex flex-wrap gap-4">
             <a className="transition hover:text-gray-900" href="/privacy">
               Privacy

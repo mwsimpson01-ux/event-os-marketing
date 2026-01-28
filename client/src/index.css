@@ -165,6 +165,10 @@
   --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 @layer base {
   * {
     @apply border-border;
