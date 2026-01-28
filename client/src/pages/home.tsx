@@ -1,10 +1,7 @@
-import { createClient } from "@supabase/supabase-js";
 import { useState } from "react";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string | undefined;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
-const supabase =
-  supabaseUrl && supabaseAnonKey ? createClient(supabaseUrl, supabaseAnonKey) : null;
 
 export default function Home() {
   const [submitted, setSubmitted] = useState(false);
@@ -222,7 +219,7 @@ export default function Home() {
                     if (honeypot) return;
                     setSubmitError(null);
 
-                    if (!supabase) {
+                    if (!supabaseUrl || !supabaseAnonKey) {
                       setSubmitError("Waitlist is temporarily unavailable. Please try again shortly.");
                       return;
                     }
@@ -243,8 +240,18 @@ export default function Home() {
 
                     try {
                       setSubmitting(true);
-                      const { error } = await supabase.from("waitlist").insert(payload);
-                      if (error) {
+                      const response = await fetch(`${supabaseUrl}/rest/v1/waitlist`, {
+                        method: "POST",
+                        headers: {
+                          "Content-Type": "application/json",
+                          apikey: supabaseAnonKey,
+                          Authorization: `Bearer ${supabaseAnonKey}`,
+                          Prefer: "return=minimal",
+                        },
+                        body: JSON.stringify(payload),
+                      });
+
+                      if (!response.ok) {
                         setSubmitError("We couldn’t submit your request. Please try again.");
                         return;
                       }
