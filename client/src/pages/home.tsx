@@ -27,9 +27,9 @@ export default function Home() {
       </header>
 
       <main>
-        <section className="pt-12 pb-10 sm:pt-14 sm:pb-12 lg:pt-14 lg:pb-10">
+        <section className="pt-10 pb-8 sm:pt-12 sm:pb-10 lg:pt-12 lg:pb-10">
           <div className={pageContainer}>
-            <div className="max-w-3xl xl:max-w-[30ch]">
+            <div className="max-w-3xl">
               <div className="flex flex-wrap gap-2">
                 <span className="max-w-full rounded-full border border-orange-100 bg-orange-50 px-3 py-1.5 text-sm font-medium text-orange-700">
                   In development
@@ -67,11 +67,11 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} my-10 sm:my-12`}>
+        <div className={`${pageContainer} my-6 sm:my-8`}>
           <div className="border-t border-slate-100" />
         </div>
 
-        <section id="why" className="py-12 sm:py-14 lg:py-14">
+        <section id="why" className="py-10 sm:py-12 lg:py-12">
           <div className={pageContainer}>
             <div className="flex flex-col">
               <div>
@@ -83,7 +83,7 @@ export default function Home() {
                   Stop reconciling tools. Run the event in one place.
                 </p>
               </div>
-            <div className="mt-8 grid auto-rows-fr grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
+            <div className="mt-6 grid auto-rows-fr grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
               {[
                 {
                   title: "One source of truth",
@@ -115,11 +115,11 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} my-10 sm:my-12`}>
+        <div className={`${pageContainer} my-6 sm:my-8`}>
           <div className="border-t border-slate-100" />
         </div>
 
-        <section id="product" className="bg-gray-50/60 py-12 sm:py-14 lg:py-14">
+        <section id="product" className="bg-gray-50/60 py-10 sm:py-12 lg:py-12">
           <div className={pageContainer}>
             <div className="flex flex-col">
               <div>
@@ -132,7 +132,7 @@ export default function Home() {
                   change how they work.
                 </p>
               </div>
-              <div className="mt-8 grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
+              <div className="mt-6 grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
                 {[
                   {
                     title: "Planner control, shared visibility",
@@ -174,11 +174,11 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} my-10 sm:my-12`}>
+        <div className={`${pageContainer} my-6 sm:my-8`}>
           <div className="border-t border-slate-100" />
         </div>
 
-        <section id="early-access" className="py-12 sm:py-14 lg:py-14">
+        <section id="early-access" className="py-10 sm:py-12 lg:py-12">
           <div className={pageContainer}>
             <div className="grid items-start gap-10 lg:grid-cols-2">
             <div className="max-w-xl">
