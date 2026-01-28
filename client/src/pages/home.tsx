@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function Home() {
   const [submitted, setSubmitted] = useState(false);
   const [honeypot, setHoneypot] = useState("");
-  const pageContainer = "mx-auto w-full max-w-[1120px] px-4 sm:px-6";
+  const pageContainer = "mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8";
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
@@ -27,9 +27,9 @@ export default function Home() {
       </header>
 
       <main className="pt-14">
-        <section className="py-12 sm:py-16">
+        <section className="py-12 sm:py-16 lg:pt-20">
           <div className={pageContainer}>
-            <div className="max-w-[24ch] sm:max-w-[28ch]">
+            <div className="max-w-[24ch] sm:max-w-xl lg:max-w-2xl">
               <div className="flex flex-wrap gap-2">
                 <span className="max-w-full rounded-full border border-orange-100 bg-orange-50 px-3 py-1.5 text-sm font-medium text-orange-700">
                   In development
@@ -39,22 +39,22 @@ export default function Home() {
                 </span>
               </div>
 
-              <h1 className="mt-4 text-[40px] font-semibold leading-[1.05] tracking-tight text-gray-900 sm:text-5xl">
+              <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
                 The operating system for modern corporate events.
               </h1>
               <p className="mt-4 text-[15px] leading-relaxed text-gray-600 sm:text-base">
                 Plan, align, and execute complex events in one calm system — built for how events actually run.
               </p>
 
-              <div className="mt-6 grid gap-3">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <a
-                  className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-orange-500 text-base font-semibold text-white shadow-sm transition hover:bg-orange-400"
+                  className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-orange-500 text-base font-semibold text-white shadow-sm transition hover:bg-orange-400 sm:w-auto sm:px-6"
                   href="#early-access"
                 >
                   Join the waitlist
                 </a>
                 <a
-                  className="inline-flex h-12 w-full items-center justify-center rounded-xl border border-gray-200 bg-white text-base font-semibold text-gray-700 shadow-sm transition hover:border-gray-300"
+                  className="inline-flex h-12 w-full items-center justify-center rounded-xl border border-gray-200 bg-white text-base font-semibold text-gray-700 shadow-sm transition hover:border-gray-300 sm:w-auto sm:px-6"
                   href="mailto:megan@event-os.io"
                 >
                   Request investor deck
@@ -74,13 +74,13 @@ export default function Home() {
         <section id="why" className="py-12 sm:py-16">
           <div className={pageContainer}>
             <div className="flex flex-col">
-            <div>
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">WHY EVENT.OS</p>
-              <h2 className="mb-4 text-3xl font-semibold leading-tight text-gray-900 sm:text-4xl">
-                Built for real-world event operations.
-              </h2>
-            </div>
-            <div className="mt-6 grid auto-rows-fr grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
+              <div>
+                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">WHY EVENT.OS</p>
+                <h2 className="mb-4 text-3xl font-semibold leading-tight text-gray-900 sm:text-4xl">
+                  Built for real-world event operations.
+                </h2>
+              </div>
+            <div className="mt-6 grid auto-rows-fr grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
               {[
                 {
                   title: "One source of truth",
@@ -126,7 +126,7 @@ export default function Home() {
                   change how they work.
                 </p>
               </div>
-              <div className="mt-6 grid auto-rows-fr grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
+              <div className="mt-6 grid auto-rows-fr grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
                 {[
                   {
                     title: "Planner-led by design",
@@ -177,8 +177,8 @@ export default function Home() {
 
         <section id="early-access" className="py-12 sm:py-16">
           <div className={pageContainer}>
-            <div className="grid items-start gap-6 lg:grid-cols-[5fr_7fr]">
-            <div>
+            <div className="grid items-start gap-10 lg:grid-cols-2">
+            <div className="max-w-xl">
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">EARLY ACCESS</p>
               <h2 className="mb-4 text-3xl font-semibold leading-tight text-gray-900 sm:text-4xl">Join the waitlist.</h2>
               <p className="max-w-[560px] text-[15px] leading-relaxed text-gray-600">
@@ -186,7 +186,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
+            <div className="w-full max-w-xl rounded-2xl border border-gray-200 bg-white p-5 shadow-sm sm:ml-auto sm:p-6">
               {submitted ? (
                 <div className="grid gap-3">
                   <p className="text-sm font-semibold text-gray-900">Thanks for your interest.</p>
