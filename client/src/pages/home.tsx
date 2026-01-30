@@ -62,7 +62,7 @@ export default function Home() {
               href="#why"
               onClick={handleNavClick}
             >
-              Why
+              Overview
             </a>
             <a
               className={`transition hover:text-gray-900 ${activeSection === "pillars" ? "text-gray-900" : ""}`}
@@ -120,13 +120,6 @@ export default function Home() {
                   onClick={handleNavClick}
                 >
                   Request an invite
-                </a>
-                <a
-                  className="inline-flex h-11 w-full items-center justify-center rounded-xl border border-gray-200 bg-white px-5 text-base font-semibold text-gray-700 shadow-sm transition hover:border-gray-300 sm:w-auto"
-                  href="#pillars"
-                  onClick={handleNavClick}
-                >
-                  See the pillars
                 </a>
               </div>
               <p className="mt-4 text-sm text-gray-500">
@@ -193,7 +186,7 @@ export default function Home() {
                   Core pillars
                 </h2>
                 <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-gray-600">
-                  Designed as one system — not disconnected modules.
+                  The foundation for planning and execution — in one place.
                 </p>
               </div>
               <div className="mt-6 grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2">
@@ -240,12 +233,12 @@ export default function Home() {
           <div className={pageContainer}>
             <div className="flex flex-col">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">WHAT SETS EVENT.OS APART</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">DIFFERENTIATORS</p>
                 <h2 className="mt-2 text-3xl font-semibold leading-[1.1] tracking-tight text-gray-900 sm:text-[34px]">
                   What sets Event.OS apart
                 </h2>
                 <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-gray-600">
-                  A modern platform designed for operational clarity, cross-functional teams, and live execution.
+                  Designed to replace fragmented tools with one connected operating model.
                 </p>
               </div>
               <div className="mt-6 grid auto-rows-fr grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2">
@@ -293,10 +286,10 @@ export default function Home() {
               <div className="max-w-xl">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">BUILT BY PLANNERS</p>
                 <h2 className="mt-2 text-3xl font-semibold leading-[1.1] tracking-tight text-gray-900 sm:text-[34px]">
-                  Built from the inside of live events
+                  Built for the realities of live execution
                 </h2>
                 <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-gray-600">
-                  Grounded in the realities of complex, stakeholder-heavy programs.
+                  Grounded in complex, stakeholder-heavy programs.
                 </p>
                 <div className="mt-4 rounded-2xl border border-orange-500/20 bg-orange-500/5 p-4">
                   <p className="text-sm text-gray-600">
@@ -307,7 +300,7 @@ export default function Home() {
                   {[
                     "Designed for stakeholder-heavy, multi-day programs.",
                     "Built around real onsite workflows and last-minute change.",
-                    "Structured for teams, vendors, and approvals — not solo planners.",
+                    "Built for corporate teams to plan efficiently — replacing multi-tool workflows with one connected system.",
                     "Focused on operational clarity, not busywork.",
                   ].map((item) => (
                     <div key={item} className="flex items-start gap-3 rounded-xl border border-slate-200/70 bg-white p-4 sm:p-5">
@@ -342,7 +335,7 @@ export default function Home() {
                   "Fewer tools and fewer handoffs",
                   "Clear ownership across teams and vendors",
                   "Better visibility into what’s at risk",
-                  "Less mental load during live execution",
+                  "Less mental load during live moments",
                   "Faster planning cycles",
                   "Cleaner wrap + reporting foundation",
                 ].map((item) => (
@@ -369,7 +362,7 @@ export default function Home() {
                   Help shape what’s next
                 </h2>
                 <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-gray-600">
-                  We’re opening a limited number of conversations with experienced event teams as Event.OS expands its private build.
+                  Join the waitlist to be considered for the private build as access expands.
                 </p>
               </div>
 
