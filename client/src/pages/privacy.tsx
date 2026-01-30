@@ -25,16 +25,6 @@ export default function Privacy() {
                 access members.
               </p>
             </section>
-            <section className="space-y-2">
-              <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-500">Contact</h2>
-              <p className="leading-relaxed">
-                Questions?{" "}
-                <a className="text-gray-900 underline underline-offset-4" href="mailto:megan@event-os.io">
-                  Contact us
-                </a>{" "}
-                at megan@event-os.io.
-              </p>
-            </section>
           </div>
         </div>
       </div>

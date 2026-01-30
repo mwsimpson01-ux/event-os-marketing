@@ -130,7 +130,7 @@ export default function Home() {
                 </a>
               </div>
               <p className="mt-4 text-sm text-gray-500">
-                In private build with experienced event teams.
+                In private build with experienced corporate event teams.
               </p>
             </div>
           </div>
@@ -140,7 +140,7 @@ export default function Home() {
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="why" className="scroll-mt-24 py-8 sm:py-10 lg:py-10">
+        <section id="why" className="scroll-mt-24 py-6 sm:py-8 lg:py-8">
           <div className={pageContainer}>
             <div className="flex flex-col">
               <div>
@@ -149,7 +149,7 @@ export default function Home() {
                   Built for real-world event operations
                 </h2>
                 <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-gray-600">
-                  Reduce tool sprawl and align teams in one place.
+                  Reduce tool bloat and align teams in one place.
                 </p>
               </div>
               <div className="mt-6 grid auto-rows-fr grid-cols-1 gap-5 sm:gap-6 md:grid-cols-3">
@@ -236,7 +236,7 @@ export default function Home() {
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="different" className="scroll-mt-24 py-8 sm:py-10 lg:py-10">
+        <section id="different" className="scroll-mt-24 py-6 sm:py-8 lg:py-8">
           <div className={pageContainer}>
             <div className="flex flex-col">
               <div>
@@ -277,7 +277,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="mt-4 text-[15px] leading-relaxed text-gray-600">
-                Request an invite to be considered for the private build.
+                Request an invite to join the private build.
               </p>
             </div>
           </div>
@@ -287,9 +287,9 @@ export default function Home() {
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="built" className="scroll-mt-24 bg-gray-50/60 py-8 sm:py-10 lg:py-10">
+        <section id="built" className="scroll-mt-24 bg-gray-50/60 py-6 sm:py-8 lg:py-8">
           <div className={pageContainer}>
-            <div className="grid items-start gap-8 lg:grid-cols-2">
+            <div className="flex flex-col">
               <div className="max-w-xl">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">BUILT BY PLANNERS</p>
                 <h2 className="mt-2 text-3xl font-semibold leading-[1.1] tracking-tight text-gray-900 sm:text-[34px]">
@@ -298,6 +298,11 @@ export default function Home() {
                 <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-gray-600">
                   Grounded in the realities of complex, stakeholder-heavy programs.
                 </p>
+                <div className="mt-4 rounded-2xl border border-orange-500/20 bg-orange-500/5 p-4">
+                  <p className="text-sm text-orange-600">
+                    Created by experienced event professionals, grounded in the realities of live execution and complex programs.
+                  </p>
+                </div>
                 <div className="mt-6 grid gap-4">
                   {[
                     "Designed for stakeholder-heavy, multi-day programs.",
@@ -311,12 +316,6 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-              </div>
-
-              <div className="w-full max-w-xl rounded-2xl border border-slate-200 bg-white p-6 shadow-sm lg:ml-auto">
-                <p className="text-sm text-gray-600">
-                  Event.OS is being shaped with working planners so the system matches how events are actually run.
-                </p>
               </div>
             </div>
           </div>
@@ -370,7 +369,7 @@ export default function Home() {
                   Help shape what’s next
                 </h2>
                 <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-gray-600">
-                  We’re opening a limited number of conversations with experienced event teams shaping Event.OS.
+                  We’re opening a limited number of conversations with experienced event teams as Event.OS expands its private build.
                 </p>
               </div>
 
@@ -445,7 +444,7 @@ export default function Home() {
                     }}
                   >
                     <label className="grid gap-2 text-sm font-medium text-gray-700">
-                      Name (optional)
+                      Name
                       <input
                         className="h-11 w-full rounded-xl border border-gray-200 px-4 text-base shadow-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
                         name="name"
@@ -465,7 +464,7 @@ export default function Home() {
                       {emailError ? <p className="text-sm text-red-600">{emailError}</p> : null}
                     </label>
                     <label className="grid gap-2 text-sm font-medium text-gray-700">
-                      Company (optional)
+                      Company
                       <input
                         className="h-11 w-full rounded-xl border border-gray-200 px-4 text-base shadow-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
                         name="company"
@@ -474,7 +473,7 @@ export default function Home() {
                       />
                     </label>
                     <label className="grid gap-2 text-sm font-medium text-gray-700">
-                      Role (optional)
+                      Role
                       <select
                         className="h-11 w-full rounded-xl border border-gray-200 bg-white px-4 pr-10 text-base shadow-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
                         name="role"
