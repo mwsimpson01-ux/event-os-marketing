@@ -76,7 +76,7 @@ export default function Home() {
               href="#different"
               onClick={handleNavClick}
             >
-              Why different
+              What sets Event.OS apart
             </a>
             <a
               className={`transition hover:text-gray-900 ${activeSection === "built" ? "text-gray-900" : ""}`}
@@ -110,7 +110,7 @@ export default function Home() {
                 An operating system for modern event teams.
               </h1>
               <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-gray-600 sm:text-base">
-                A unified workflow that connects registration, agenda, run of show, budget, and accountability — without tool sprawl.
+                A unified system that connects registration, agenda, run of show, budget, and accountability — without tool sprawl.
               </p>
 
               <div className="mt-6 grid gap-3 sm:flex sm:items-center">
@@ -136,11 +136,11 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} my-5 sm:my-6`}>
+        <div className={`${pageContainer} my-4 sm:my-5`}>
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="why" className="scroll-mt-24 py-6 sm:py-8 lg:py-8">
+        <section id="why" className="scroll-mt-24 py-5 sm:py-7 lg:py-7">
           <div className={pageContainer}>
             <div className="flex flex-col">
               <div>
@@ -164,7 +164,7 @@ export default function Home() {
                   },
                   {
                     title: "Execution is chaos",
-                    body: "Keep teams aligned live with calm control when plans shift.",
+                    body: "Keep teams aligned in live moments when plans shift.",
                   },
                 ].map((item) => (
                   <div
@@ -180,11 +180,11 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} my-5 sm:my-6`}>
+        <div className={`${pageContainer} my-4 sm:my-5`}>
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="pillars" className="scroll-mt-24 bg-gray-50/60 py-8 sm:py-10 lg:py-10">
+        <section id="pillars" className="scroll-mt-24 bg-gray-50/60 py-7 sm:py-9 lg:py-9">
           <div className={pageContainer}>
             <div className="flex flex-col">
               <div>
@@ -232,20 +232,20 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} my-5 sm:my-6`}>
+        <div className={`${pageContainer} my-4 sm:my-5`}>
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="different" className="scroll-mt-24 py-6 sm:py-8 lg:py-8">
+        <section id="different" className="scroll-mt-24 py-5 sm:py-7 lg:py-7">
           <div className={pageContainer}>
             <div className="flex flex-col">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">WHY DIFFERENT</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">WHAT SETS EVENT.OS APART</p>
                 <h2 className="mt-2 text-3xl font-semibold leading-[1.1] tracking-tight text-gray-900 sm:text-[34px]">
-                  Why different
+                  What sets Event.OS apart
                 </h2>
                 <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-gray-600">
-                  Operational clarity and a unified system that replaces legacy sprawl.
+                  A modern system built for operational clarity, cross-functional teams, and live execution.
                 </p>
               </div>
               <div className="mt-6 grid auto-rows-fr grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2">
@@ -283,11 +283,11 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} my-5 sm:my-6`}>
+        <div className={`${pageContainer} my-4 sm:my-5`}>
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="built" className="scroll-mt-24 bg-gray-50/60 py-6 sm:py-8 lg:py-8">
+        <section id="built" className="scroll-mt-24 bg-gray-50/60 py-5 sm:py-7 lg:py-7">
           <div className={pageContainer}>
             <div className="flex flex-col">
               <div className="max-w-xl">
@@ -299,8 +299,8 @@ export default function Home() {
                   Grounded in the realities of complex, stakeholder-heavy programs.
                 </p>
                 <div className="mt-4 rounded-2xl border border-orange-500/20 bg-orange-500/5 p-4">
-                  <p className="text-sm text-orange-600">
-                    Created by experienced event professionals, grounded in the realities of live execution and complex programs.
+                  <p className="text-sm text-gray-600">
+                    Created by experienced event professionals, built for the realities of live execution.
                   </p>
                 </div>
                 <div className="mt-6 grid gap-4">
@@ -321,11 +321,11 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} my-5 sm:my-6`}>
+        <div className={`${pageContainer} my-4 sm:my-5`}>
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="value" className="py-8 sm:py-10 lg:py-10">
+        <section id="value" className="py-6 sm:py-8 lg:py-8">
           <div className={pageContainer}>
             <div className="flex flex-col">
               <div>
@@ -356,7 +356,7 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} my-5 sm:my-6`}>
+        <div className={`${pageContainer} my-4 sm:my-5`}>
           <div className="border-t border-gray-200/60" />
         </div>
 
@@ -512,7 +512,7 @@ export default function Home() {
                       We respect your inbox. Communications are limited and relevant.
                     </p>
                     <p className="text-sm text-gray-500">
-                      Designed for corporate programs and cross-functional event teams.
+                      Designed for corporate programs and cross-functional teams.
                     </p>
                     {submitError ? (
                       <p className="text-sm text-red-600">{submitError}</p>
