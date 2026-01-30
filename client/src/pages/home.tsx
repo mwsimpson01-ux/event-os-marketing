@@ -97,7 +97,7 @@ export default function Home() {
       </header>
 
       <main>
-        <section className="pt-10 pb-10 sm:pt-12 sm:pb-10 lg:pt-12 lg:pb-10">
+        <section className="pt-8 pb-8 sm:pt-10 sm:pb-8 lg:pt-10 lg:pb-8">
           <div className={pageContainer}>
             <div className="max-w-3xl">
               <div className="flex flex-wrap gap-2">
@@ -136,11 +136,11 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} my-6 sm:my-8`}>
+        <div className={`${pageContainer} my-5 sm:my-6`}>
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="why" className="scroll-mt-24 py-10 sm:py-12 lg:py-12">
+        <section id="why" className="scroll-mt-24 py-8 sm:py-10 lg:py-10">
           <div className={pageContainer}>
             <div className="flex flex-col">
               <div>
@@ -156,7 +156,7 @@ export default function Home() {
                 {[
                   {
                     title: "Too many tools",
-                    body: "Replace scattered tools with one connected system for planning and execution.",
+                    body: "Replace scattered tools with a single system for planning and execution.",
                   },
                   {
                     title: "Handoffs create risk",
@@ -180,11 +180,11 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} my-6 sm:my-8`}>
+        <div className={`${pageContainer} my-5 sm:my-6`}>
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="pillars" className="scroll-mt-24 bg-gray-50/60 py-10 sm:py-12 lg:py-12">
+        <section id="pillars" className="scroll-mt-24 bg-gray-50/60 py-8 sm:py-10 lg:py-10">
           <div className={pageContainer}>
             <div className="flex flex-col">
               <div>
@@ -232,11 +232,11 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} my-6 sm:my-8`}>
+        <div className={`${pageContainer} my-5 sm:my-6`}>
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="different" className="scroll-mt-24 py-10 sm:py-12 lg:py-12">
+        <section id="different" className="scroll-mt-24 py-8 sm:py-10 lg:py-10">
           <div className={pageContainer}>
             <div className="flex flex-col">
               <div>
@@ -283,11 +283,11 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} my-6 sm:my-8`}>
+        <div className={`${pageContainer} my-5 sm:my-6`}>
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="built" className="scroll-mt-24 py-10 sm:py-12 lg:py-12">
+        <section id="built" className="scroll-mt-24 bg-gray-50/60 py-8 sm:py-10 lg:py-10">
           <div className={pageContainer}>
             <div className="grid items-start gap-8 lg:grid-cols-2">
               <div className="max-w-xl">
@@ -322,11 +322,11 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} my-6 sm:my-8`}>
+        <div className={`${pageContainer} my-5 sm:my-6`}>
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="value" className="py-10 sm:py-12 lg:py-12">
+        <section id="value" className="py-8 sm:py-10 lg:py-10">
           <div className={pageContainer}>
             <div className="flex flex-col">
               <div>
@@ -357,11 +357,11 @@ export default function Home() {
           </div>
         </section>
 
-        <div className={`${pageContainer} my-6 sm:my-8`}>
+        <div className={`${pageContainer} my-5 sm:my-6`}>
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="invite" className="scroll-mt-24 py-10 sm:py-12 lg:py-12">
+        <section id="invite" className="scroll-mt-24 bg-gray-50/60 py-8 sm:py-10 lg:py-10">
           <div className={pageContainer}>
             <div className="grid items-start gap-8 lg:grid-cols-2">
               <div className="max-w-xl">
@@ -370,8 +370,7 @@ export default function Home() {
                   Help shape what’s next
                 </h2>
                 <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-gray-600">
-                  We’re opening a limited number of conversations with experienced planners and event teams to shape
-                  Event.OS.
+                  We’re opening a limited number of conversations with experienced event teams shaping Event.OS.
                 </p>
               </div>
 
@@ -510,9 +509,11 @@ export default function Home() {
                     >
                       {submitting ? "Submitting..." : "Request an invite"}
                     </button>
-                    <p className="text-sm text-gray-500">No spam. Occasional updates. We’ll reach out personally.</p>
                     <p className="text-sm text-gray-500">
-                      Built for corporate event teams, agencies, and stakeholder-heavy programs.
+                      We respect your inbox. Communications are limited and relevant.
+                    </p>
+                    <p className="text-sm text-gray-500">
+                      Designed for corporate programs and cross-functional event teams.
                     </p>
                     {submitError ? (
                       <p className="text-sm text-red-600">{submitError}</p>
