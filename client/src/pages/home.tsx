@@ -13,7 +13,7 @@ export default function Home() {
   const pageContainer = "mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8";
 
   useEffect(() => {
-    const sectionIds = ["why", "pillars", "built", "invite"];
+    const sectionIds = ["why", "pillars", "different", "built", "invite"];
     const sections = sectionIds
       .map((id) => document.getElementById(id))
       .filter((section): section is HTMLElement => Boolean(section));
@@ -72,6 +72,13 @@ export default function Home() {
               Pillars
             </a>
             <a
+              className={`transition hover:text-gray-900 ${activeSection === "different" ? "text-gray-900" : ""}`}
+              href="#different"
+              onClick={handleNavClick}
+            >
+              Why different
+            </a>
+            <a
               className={`transition hover:text-gray-900 ${activeSection === "built" ? "text-gray-900" : ""}`}
               href="#built"
               onClick={handleNavClick}
@@ -83,7 +90,7 @@ export default function Home() {
               href="#invite"
               onClick={handleNavClick}
             >
-              Contact
+              Request invite
             </a>
           </nav>
         </div>
@@ -95,7 +102,7 @@ export default function Home() {
             <div className="max-w-3xl">
               <div className="flex flex-wrap gap-2">
                 <span className="max-w-full rounded-full border border-gray-200/80 bg-white px-3 py-1.5 text-sm font-medium text-gray-600">
-                  Invite-only early access
+                  Private build
                 </span>
               </div>
 
@@ -103,7 +110,7 @@ export default function Home() {
                 An operating system for modern event teams.
               </h1>
               <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-gray-600 sm:text-base">
-                A unified workflow that connects registration, agenda, run of show, budget, and team accountability — without the tool sprawl.
+                A unified workflow that connects registration, agenda, run of show, budget, and accountability — without tool sprawl.
               </p>
 
               <div className="mt-6 grid gap-3 sm:flex sm:items-center">
@@ -123,7 +130,7 @@ export default function Home() {
                 </a>
               </div>
               <p className="mt-4 text-sm text-gray-500">
-                Currently in active development with a small group of experienced planners shaping direction.
+                In private build with experienced event teams.
               </p>
             </div>
           </div>
@@ -139,7 +146,7 @@ export default function Home() {
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">WHY EVENT.OS</p>
                 <h2 className="mt-2 text-3xl font-semibold leading-[1.1] tracking-tight text-gray-900 sm:text-[34px]">
-                  Built for real-world event operations.
+                  Built for real-world event operations
                 </h2>
                 <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-gray-600">
                   Reduce tool sprawl and align teams in one place.
@@ -149,15 +156,15 @@ export default function Home() {
                 {[
                   {
                     title: "Too many tools",
-                    body: "Bring core planning and execution workflows into one connected system.",
+                    body: "Replace scattered tools with one connected system for planning and execution.",
                   },
                   {
                     title: "Handoffs create risk",
-                    body: "Clarify ownership, reduce missed details, and keep stakeholders aligned.",
+                    body: "Make ownership explicit, reduce missed details, and keep stakeholders aligned.",
                   },
                   {
                     title: "Execution is chaos",
-                    body: "Run live moments with calm control and real visibility into what matters.",
+                    body: "Keep teams aligned live with calm control when plans shift.",
                   },
                 ].map((item) => (
                   <div
@@ -221,6 +228,57 @@ export default function Home() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+
+        <div className={`${pageContainer} my-6 sm:my-8`}>
+          <div className="border-t border-gray-200/60" />
+        </div>
+
+        <section id="different" className="scroll-mt-24 py-10 sm:py-12 lg:py-12">
+          <div className={pageContainer}>
+            <div className="flex flex-col">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">WHY DIFFERENT</p>
+                <h2 className="mt-2 text-3xl font-semibold leading-[1.1] tracking-tight text-gray-900 sm:text-[34px]">
+                  Why different
+                </h2>
+                <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-gray-600">
+                  Operational clarity and a unified system that replaces legacy sprawl.
+                </p>
+              </div>
+              <div className="mt-6 grid auto-rows-fr grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2">
+                {[
+                  {
+                    title: "Ops-first, not form-first",
+                    body: "Built around real execution workflows, not isolated intake steps.",
+                  },
+                  {
+                    title: "One connected system",
+                    body: "Changes ripple across workflows automatically, without manual rework.",
+                  },
+                  {
+                    title: "Enterprise collaboration built in",
+                    body: "Ownership, roles, approvals, and accountability stay clear at scale.",
+                  },
+                  {
+                    title: "Built for live moments",
+                    body: "Calm control when plans change on site.",
+                  },
+                ].map((item) => (
+                  <div
+                    key={item.title}
+                    className="h-full rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6"
+                  >
+                    <h3 className="text-[17px] font-semibold text-gray-900">{item.title}</h3>
+                    <p className="mt-2 text-[15px] leading-6 text-slate-600">{item.body}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-4 text-[15px] leading-relaxed text-gray-600">
+                Request an invite to be considered for the private build.
+              </p>
             </div>
           </div>
         </section>
@@ -452,6 +510,10 @@ export default function Home() {
                     >
                       {submitting ? "Submitting..." : "Request an invite"}
                     </button>
+                    <p className="text-sm text-gray-500">No spam. Occasional updates. We’ll reach out personally.</p>
+                    <p className="text-sm text-gray-500">
+                      Built for corporate event teams, agencies, and stakeholder-heavy programs.
+                    </p>
                     {submitError ? (
                       <p className="text-sm text-red-600">{submitError}</p>
                     ) : null}
