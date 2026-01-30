@@ -76,7 +76,7 @@ export default function Home() {
               href="#different"
               onClick={handleNavClick}
             >
-              What sets Event.OS apart
+              Differentiators
             </a>
             <a
               className={`transition hover:text-gray-900 ${activeSection === "built" ? "text-gray-900" : ""}`}
@@ -110,7 +110,7 @@ export default function Home() {
                 An operating system for modern event teams.
               </h1>
               <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-gray-600 sm:text-base">
-                A unified system that connects registration, agenda, run of show, budget, and accountability — without tool sprawl.
+                A unified system connecting registration, agenda, run of show, budget, and accountability — without tool sprawl.
               </p>
 
               <div className="mt-6 grid gap-3 sm:flex sm:items-center">
@@ -149,7 +149,7 @@ export default function Home() {
                   Built for real-world event operations
                 </h2>
                 <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-gray-600">
-                  Reduce tool bloat and align teams in one place.
+                  Reduce tool bloat and align teams across the entire event lifecycle.
                 </p>
               </div>
               <div className="mt-6 grid auto-rows-fr grid-cols-1 gap-5 sm:gap-6 md:grid-cols-3">
@@ -245,14 +245,14 @@ export default function Home() {
                   What sets Event.OS apart
                 </h2>
                 <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-gray-600">
-                  A modern system built for operational clarity, cross-functional teams, and live execution.
+                  A modern platform designed for operational clarity, cross-functional teams, and live execution.
                 </p>
               </div>
               <div className="mt-6 grid auto-rows-fr grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2">
                 {[
                   {
                     title: "Ops-first, not form-first",
-                    body: "Built around real execution workflows, not isolated intake steps.",
+                    body: "Built around real execution workflows — not isolated intake steps.",
                   },
                   {
                     title: "One connected system",
@@ -264,7 +264,7 @@ export default function Home() {
                   },
                   {
                     title: "Built for live moments",
-                    body: "Calm control when plans change on site.",
+                    body: "Clear control when plans change on site.",
                   },
                 ].map((item) => (
                   <div
