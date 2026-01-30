@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string | undefined;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
@@ -8,7 +8,46 @@ export default function Home() {
   const [honeypot, setHoneypot] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [emailError, setEmailError] = useState<string | null>(null);
+  const [activeSection, setActiveSection] = useState<string>("why");
   const pageContainer = "mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8";
+
+  useEffect(() => {
+    const sectionIds = ["why", "pillars", "built", "invite"];
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => Boolean(section));
+
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visible[0]?.target) {
+          setActiveSection(visible[0].target.id);
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleNavClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    const href = event.currentTarget.getAttribute("href");
+    if (!href || !href.startsWith("#")) return;
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    event.preventDefault();
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.replaceState(null, "", href);
+  };
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
@@ -18,14 +57,33 @@ export default function Home() {
             <img src="/logo.png" alt="Event.OS" className="h-7 w-auto" />
           </a>
           <nav className="hidden items-center gap-5 text-sm text-gray-600 md:flex">
-            <a className="transition hover:text-gray-900" href="#product">
-              Product
+            <a
+              className={`transition hover:text-gray-900 ${activeSection === "why" ? "text-gray-900" : ""}`}
+              href="#why"
+              onClick={handleNavClick}
+            >
+              Why
             </a>
-            <a className="transition hover:text-gray-900" href="#why">
-              Why Event.OS
+            <a
+              className={`transition hover:text-gray-900 ${activeSection === "pillars" ? "text-gray-900" : ""}`}
+              href="#pillars"
+              onClick={handleNavClick}
+            >
+              Pillars
             </a>
-            <a className="transition hover:text-gray-900" href="#early-access">
-              Early Access
+            <a
+              className={`transition hover:text-gray-900 ${activeSection === "built" ? "text-gray-900" : ""}`}
+              href="#built"
+              onClick={handleNavClick}
+            >
+              Built by planners
+            </a>
+            <a
+              className={`transition hover:text-gray-900 ${activeSection === "invite" ? "text-gray-900" : ""}`}
+              href="#invite"
+              onClick={handleNavClick}
+            >
+              Contact
             </a>
           </nav>
         </div>
@@ -36,37 +94,36 @@ export default function Home() {
           <div className={pageContainer}>
             <div className="max-w-3xl">
               <div className="flex flex-wrap gap-2">
-                <span className="max-w-full rounded-full border border-orange-100 bg-orange-50 px-3 py-1.5 text-sm font-medium text-orange-700">
-                  In development
-                </span>
                 <span className="max-w-full rounded-full border border-gray-200/80 bg-white px-3 py-1.5 text-sm font-medium text-gray-600">
                   Invite-only early access
                 </span>
               </div>
 
               <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight text-gray-900 sm:text-5xl lg:text-[52px] lg:leading-[1.02]">
-                The operating system for modern corporate events.
+                An operating system for modern event teams.
               </h1>
               <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-gray-600 sm:text-base">
-                Plan, align, and execute complex events in one calm system — built for how events actually run.
+                A unified workflow that connects registration, agenda, run of show, budget, and team accountability — without the tool sprawl.
               </p>
 
               <div className="mt-6 grid gap-3 sm:flex sm:items-center">
                 <a
                   className="inline-flex h-11 w-full items-center justify-center rounded-xl bg-orange-500 px-5 text-base font-semibold text-white shadow-sm transition hover:bg-orange-400 sm:w-auto"
-                  href="#early-access"
+                  href="#invite"
+                  onClick={handleNavClick}
                 >
-                  Join the waitlist
+                  Request an invite
                 </a>
                 <a
                   className="inline-flex h-11 w-full items-center justify-center rounded-xl border border-gray-200 bg-white px-5 text-base font-semibold text-gray-700 shadow-sm transition hover:border-gray-300 sm:w-auto"
-                  href="mailto:megan@event-os.io"
+                  href="#pillars"
+                  onClick={handleNavClick}
                 >
-                  Request investor deck
+                  See the pillars
                 </a>
               </div>
               <p className="mt-4 text-sm text-gray-500">
-                Currently in development. Early access will be invite-only.
+                Currently in active development with a small group of experienced planners shaping direction.
               </p>
             </div>
           </div>
@@ -76,7 +133,7 @@ export default function Home() {
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="why" className="py-10 sm:py-12 lg:py-12">
+        <section id="why" className="scroll-mt-24 py-10 sm:py-12 lg:py-12">
           <div className={pageContainer}>
             <div className="flex flex-col">
               <div>
@@ -85,37 +142,33 @@ export default function Home() {
                   Built for real-world event operations.
                 </h2>
                 <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-gray-600">
-                  Stop reconciling tools. Run the event in one place.
+                  Reduce tool sprawl and align teams in one place.
                 </p>
               </div>
-            <div className="mt-6 grid auto-rows-fr grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2">
-              {[
-                {
-                  title: "One source of truth",
-                  body: "Decisions stay aligned across the entire event — live.",
-                },
-                {
-                  title: "Operational visibility",
-                  body: "See readiness and risk before it becomes urgent.",
-                },
-                {
-                  title: "Built for real event teams",
-                  body: "Designed for planners — with seamless collaboration across vendors and partners.",
-                },
-                {
-                  title: "Enterprise-ready foundation",
-                  body: "Built to meet enterprise expectations from day one.",
-                },
-              ].map((item) => (
-                <div
-                  key={item.title}
-                  className="h-full rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6"
-                >
-                  <h3 className="text-[17px] font-semibold text-gray-900">{item.title}</h3>
-                  <p className="mt-2 text-[15px] leading-6 text-slate-600">{item.body}</p>
-                </div>
-              ))}
-            </div>
+              <div className="mt-6 grid auto-rows-fr grid-cols-1 gap-5 sm:gap-6 md:grid-cols-3">
+                {[
+                  {
+                    title: "Too many tools",
+                    body: "Bring core planning and execution workflows into one connected system.",
+                  },
+                  {
+                    title: "Handoffs create risk",
+                    body: "Clarify ownership, reduce missed details, and keep stakeholders aligned.",
+                  },
+                  {
+                    title: "Execution is chaos",
+                    body: "Run live moments with calm control and real visibility into what matters.",
+                  },
+                ].map((item) => (
+                  <div
+                    key={item.title}
+                    className="h-full rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6"
+                  >
+                    <h3 className="text-[17px] font-semibold text-gray-900">{item.title}</h3>
+                    <p className="mt-2 text-[15px] leading-6 text-slate-600">{item.body}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -124,46 +177,39 @@ export default function Home() {
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="product" className="bg-gray-50/60 py-10 sm:py-12 lg:py-12">
+        <section id="pillars" className="scroll-mt-24 bg-gray-50/60 py-10 sm:py-12 lg:py-12">
           <div className={pageContainer}>
             <div className="flex flex-col">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">DESIGNED DIFFERENTLY</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">CORE PILLARS</p>
                 <h2 className="mt-2 text-3xl font-semibold leading-[1.1] tracking-tight text-gray-900 sm:text-[34px]">
-                  Designed for how planners actually work.
+                  Core pillars
                 </h2>
                 <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-gray-600">
-                  Event.OS unifies planning, execution, and collaboration in one system — without forcing teams to
-                  change how they work.
+                  Designed as one system — not disconnected modules.
                 </p>
               </div>
               <div className="mt-6 grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2">
                 {[
                   {
-                    title: "Planner control, shared visibility",
-                    body: "Planners stay in control while vendors and partners collaborate in the same system.",
+                    title: "Registration & attendee flow",
+                    body: "Structure ticketing, access rules, and attendee paths with clarity.",
                   },
                   {
-                    title: "One system of record",
-                    body:
-                      "No more reconciling spreadsheets, emails, and timelines. Everyone works from one source of truth.",
+                    title: "Agenda & content orchestration",
+                    body: "Connect sessions, speakers, rooms, and timing into a single source of truth.",
                   },
                   {
-                    title: "Multi-day complexity, handled",
-                    body: "Multi-day programs, layered stakeholders, and last-minute changes — built for how events unfold.",
+                    title: "Run of show & live execution control",
+                    body: "Keep teams aligned minute-by-minute with practical execution tooling.",
                   },
                   {
-                    title: "Vendor collaboration with guardrails",
-                    body: "Share what vendors need without exposing everything — or losing control.",
+                    title: "Budget & financial visibility",
+                    body: "Organize spend and approvals without living in spreadsheets.",
                   },
                   {
-                    title: "Enterprise-ready foundation",
-                    body: "Security, scalability, and governance are built in from day one.",
-                  },
-                  {
-                    title: "Changes ripple everywhere",
-                    body:
-                      "One update reflects across plans, timelines, and execution — without manual rework.",
+                    title: "Team collaboration & accountability",
+                    body: "Assign owners, track progress, and reduce status-chasing.",
                   },
                 ].map((item) => (
                   <div key={item.title} className="flex items-start gap-3 rounded-xl border border-slate-200/70 bg-white p-4 sm:p-5">
@@ -183,161 +229,236 @@ export default function Home() {
           <div className="border-t border-gray-200/60" />
         </div>
 
-        <section id="early-access" className="py-10 sm:py-12 lg:py-12">
+        <section id="built" className="scroll-mt-24 py-10 sm:py-12 lg:py-12">
           <div className={pageContainer}>
             <div className="grid items-start gap-8 lg:grid-cols-2">
-            <div className="max-w-xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">EARLY ACCESS</p>
-              <h2 className="mt-2 text-3xl font-semibold leading-[1.1] tracking-tight text-gray-900 sm:text-[34px]">
-                Join the waitlist.
-              </h2>
-              <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-gray-600">
-                Early access is rolling out in phases. Join the waitlist to be notified when invitations begin.
-              </p>
-            </div>
-
-            <div className="w-full max-w-xl rounded-2xl border border-slate-200 bg-white p-6 shadow-sm lg:ml-auto">
-              {submitted ? (
-                <div className="grid gap-3">
-                  <p className="text-sm font-semibold text-gray-900">Thanks for your interest.</p>
-                  <p className="text-sm text-gray-600">
-                    We’ll review your request and follow up when invite-only access opens.
-                  </p>
-                  <button
-                    className="mt-2 inline-flex w-fit items-center justify-center rounded-xl border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-700"
-                    type="button"
-                    onClick={() => setSubmitted(false)}
-                  >
-                    Submit another request
-                  </button>
+              <div className="max-w-xl">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">BUILT BY PLANNERS</p>
+                <h2 className="mt-2 text-3xl font-semibold leading-[1.1] tracking-tight text-gray-900 sm:text-[34px]">
+                  Built from the inside of live events
+                </h2>
+                <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-gray-600">
+                  Grounded in the realities of complex, stakeholder-heavy programs.
+                </p>
+                <div className="mt-6 grid gap-4">
+                  {[
+                    "Designed for stakeholder-heavy, multi-day programs.",
+                    "Built around real onsite workflows and last-minute change.",
+                    "Structured for teams, vendors, and approvals — not solo planners.",
+                    "Focused on operational clarity, not busywork.",
+                  ].map((item) => (
+                    <div key={item} className="flex items-start gap-3 rounded-xl border border-slate-200/70 bg-white p-4 sm:p-5">
+                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-orange-500" />
+                      <p className="text-[15px] leading-6 text-slate-600">{item}</p>
+                    </div>
+                  ))}
                 </div>
-              ) : (
-                <form
-                  className="space-y-4"
-                  onSubmit={async (event) => {
-                    event.preventDefault();
-                    if (honeypot) return;
-                    setSubmitError(null);
+              </div>
 
-                    if (!supabaseUrl || !supabaseAnonKey) {
-                      setSubmitError("Waitlist is temporarily unavailable. Please try again shortly.");
-                      return;
-                    }
-
-                    const form = event.currentTarget;
-                    const formData = new FormData(form);
-                    const payload = {
-                      name: String(formData.get("name") ?? "").trim(),
-                      email: String(formData.get("email") ?? "").trim(),
-                      company: String(formData.get("company") ?? "").trim(),
-                      role: String(formData.get("role") ?? "").trim(),
-                    };
-
-                    if (!payload.name || !payload.email || !payload.company || !payload.role) {
-                      setSubmitError("Please complete all fields.");
-                      return;
-                    }
-
-                    try {
-                      setSubmitting(true);
-                      const response = await fetch(`${supabaseUrl}/rest/v1/waitlist`, {
-                        method: "POST",
-                        headers: {
-                          "Content-Type": "application/json",
-                          apikey: supabaseAnonKey,
-                          Authorization: `Bearer ${supabaseAnonKey}`,
-                          Prefer: "return=minimal",
-                        },
-                        body: JSON.stringify(payload),
-                      });
-
-                      if (!response.ok) {
-                        setSubmitError("We couldn’t submit your request. Please try again.");
-                        return;
-                      }
-                      form.reset();
-                      setSubmitted(true);
-                    } finally {
-                      setSubmitting(false);
-                    }
-                  }}
-                >
-                  <label className="grid gap-2 text-sm font-medium text-gray-700">
-                    Name
-                    <input
-                      required
-                      className="h-11 w-full rounded-xl border border-gray-200 px-4 text-base shadow-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
-                      name="name"
-                      type="text"
-                      placeholder="Alex Morgan"
-                    />
-                  </label>
-                  <label className="grid gap-2 text-sm font-medium text-gray-700">
-                    Email
-                    <input
-                      required
-                      className="h-11 w-full rounded-xl border border-gray-200 px-4 text-base shadow-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
-                      name="email"
-                      type="email"
-                      placeholder="alex@company.com"
-                    />
-                  </label>
-                  <label className="grid gap-2 text-sm font-medium text-gray-700">
-                    Company
-                    <input
-                      required
-                      className="h-11 w-full rounded-xl border border-gray-200 px-4 text-base shadow-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
-                      name="company"
-                      type="text"
-                      placeholder="Company name"
-                    />
-                  </label>
-                  <label className="grid gap-2 text-sm font-medium text-gray-700">
-                    Role
-                    <select
-                      required
-                      className="h-11 w-full rounded-xl border border-gray-200 bg-white px-4 pr-10 text-base shadow-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
-                      name="role"
-                      defaultValue=""
-                    >
-                      <option value="" disabled>
-                        Select a role
-                      </option>
-                      <option>In-house</option>
-                      <option>Agency</option>
-                      <option>Vendor</option>
-                      <option>Other</option>
-                    </select>
-                  </label>
-
-                  <div className="hidden">
-                    <label className="text-sm text-gray-700">
-                      Website
-                      <input
-                        className="h-11 rounded-xl border border-gray-200 px-3 text-sm"
-                        name="website"
-                        type="text"
-                        value={honeypot}
-                        onChange={(event) => setHoneypot(event.target.value)}
-                        autoComplete="off"
-                      />
-                    </label>
-                  </div>
-
-                  <button
-                    className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-xl bg-orange-500 text-base font-semibold text-white shadow-sm transition hover:bg-orange-400 disabled:cursor-not-allowed disabled:opacity-70"
-                    type="submit"
-                    disabled={submitting}
-                  >
-                    {submitting ? "Submitting..." : "Join the waitlist"}
-                  </button>
-                  {submitError ? (
-                    <p className="text-sm text-red-600">{submitError}</p>
-                  ) : null}
-                </form>
-              )}
+              <div className="w-full max-w-xl rounded-2xl border border-slate-200 bg-white p-6 shadow-sm lg:ml-auto">
+                <p className="text-sm text-gray-600">
+                  Event.OS is being shaped with working planners so the system matches how events are actually run.
+                </p>
+              </div>
             </div>
           </div>
+        </section>
+
+        <div className={`${pageContainer} my-6 sm:my-8`}>
+          <div className="border-t border-gray-200/60" />
+        </div>
+
+        <section id="value" className="py-10 sm:py-12 lg:py-12">
+          <div className={pageContainer}>
+            <div className="flex flex-col">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">OUTCOMES</p>
+                <h2 className="mt-2 text-3xl font-semibold leading-[1.1] tracking-tight text-gray-900 sm:text-[34px]">
+                  What you gain
+                </h2>
+                <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-gray-600">
+                  Clearer workflows, calmer execution, and shared accountability.
+                </p>
+              </div>
+              <div className="mt-6 grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2">
+                {[
+                  "Fewer tools and fewer handoffs",
+                  "Clear ownership across teams and vendors",
+                  "Better visibility into what’s at risk",
+                  "Less mental load during live execution",
+                  "Faster planning cycles",
+                  "Cleaner wrap + reporting foundation",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-3 rounded-xl border border-slate-200/70 bg-white p-4 sm:p-5">
+                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-orange-500" />
+                    <p className="text-[15px] leading-6 text-slate-600">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div className={`${pageContainer} my-6 sm:my-8`}>
+          <div className="border-t border-gray-200/60" />
+        </div>
+
+        <section id="invite" className="scroll-mt-24 py-10 sm:py-12 lg:py-12">
+          <div className={pageContainer}>
+            <div className="grid items-start gap-8 lg:grid-cols-2">
+              <div className="max-w-xl">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">INVITATION</p>
+                <h2 className="mt-2 text-3xl font-semibold leading-[1.1] tracking-tight text-gray-900 sm:text-[34px]">
+                  Help shape what’s next
+                </h2>
+                <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-gray-600">
+                  We’re opening a limited number of conversations with experienced planners and event teams to shape
+                  Event.OS.
+                </p>
+              </div>
+
+              <div className="w-full max-w-xl rounded-2xl border border-slate-200 bg-white p-6 shadow-sm lg:ml-auto">
+                {submitted ? (
+                  <div className="grid gap-3">
+                    <p className="text-sm font-semibold text-gray-900">Thanks for your interest.</p>
+                    <p className="text-sm text-gray-600">
+                      You’ll only hear from us occasionally.
+                    </p>
+                    <button
+                      className="mt-2 inline-flex w-fit items-center justify-center rounded-xl border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-700"
+                      type="button"
+                      onClick={() => setSubmitted(false)}
+                    >
+                      Submit another request
+                    </button>
+                  </div>
+                ) : (
+                  <form
+                    className="space-y-4"
+                    onSubmit={async (event) => {
+                      event.preventDefault();
+                      if (honeypot) return;
+                      setSubmitError(null);
+                      setEmailError(null);
+
+                      if (!supabaseUrl || !supabaseAnonKey) {
+                        setSubmitError("Something went wrong. Please try again.");
+                        return;
+                      }
+
+                      const form = event.currentTarget;
+                      const formData = new FormData(form);
+                      const payload = {
+                        name: String(formData.get("name") ?? "").trim(),
+                        email: String(formData.get("email") ?? "").trim(),
+                        company: String(formData.get("company") ?? "").trim(),
+                        role: String(formData.get("role") ?? "").trim(),
+                      };
+
+                      const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email);
+                      if (!isValidEmail) {
+                        setEmailError("Please enter a valid email.");
+                        return;
+                      }
+
+                      try {
+                        setSubmitting(true);
+                        const response = await fetch(`${supabaseUrl}/rest/v1/waitlist`, {
+                          method: "POST",
+                          headers: {
+                            "Content-Type": "application/json",
+                            apikey: supabaseAnonKey,
+                            Authorization: `Bearer ${supabaseAnonKey}`,
+                            Prefer: "return=minimal",
+                          },
+                          body: JSON.stringify(payload),
+                        });
+
+                        if (!response.ok) {
+                          setSubmitError("Something went wrong. Please try again.");
+                          return;
+                        }
+                        form.reset();
+                        setSubmitted(true);
+                      } catch {
+                        setSubmitError("Something went wrong. Please try again.");
+                      } finally {
+                        setSubmitting(false);
+                      }
+                    }}
+                  >
+                    <label className="grid gap-2 text-sm font-medium text-gray-700">
+                      Name (optional)
+                      <input
+                        className="h-11 w-full rounded-xl border border-gray-200 px-4 text-base shadow-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
+                        name="name"
+                        type="text"
+                        placeholder="Alex Morgan"
+                      />
+                    </label>
+                    <label className="grid gap-2 text-sm font-medium text-gray-700">
+                      Email
+                      <input
+                        required
+                        className="h-11 w-full rounded-xl border border-gray-200 px-4 text-base shadow-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
+                        name="email"
+                        type="email"
+                        placeholder="alex@company.com"
+                      />
+                      {emailError ? <p className="text-sm text-red-600">{emailError}</p> : null}
+                    </label>
+                    <label className="grid gap-2 text-sm font-medium text-gray-700">
+                      Company (optional)
+                      <input
+                        className="h-11 w-full rounded-xl border border-gray-200 px-4 text-base shadow-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
+                        name="company"
+                        type="text"
+                        placeholder="Company name"
+                      />
+                    </label>
+                    <label className="grid gap-2 text-sm font-medium text-gray-700">
+                      Role (optional)
+                      <select
+                        className="h-11 w-full rounded-xl border border-gray-200 bg-white px-4 pr-10 text-base shadow-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-100"
+                        name="role"
+                        defaultValue=""
+                      >
+                        <option value="">Select a role</option>
+                        <option>In-house</option>
+                        <option>Agency</option>
+                        <option>Vendor</option>
+                        <option>Other</option>
+                      </select>
+                    </label>
+
+                    <div className="hidden">
+                      <label className="text-sm text-gray-700">
+                        Website
+                        <input
+                          className="h-11 rounded-xl border border-gray-200 px-3 text-sm"
+                          name="website"
+                          type="text"
+                          value={honeypot}
+                          onChange={(event) => setHoneypot(event.target.value)}
+                          autoComplete="off"
+                        />
+                      </label>
+                    </div>
+
+                    <button
+                      className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-xl bg-orange-500 text-base font-semibold text-white shadow-sm transition hover:bg-orange-400 disabled:cursor-not-allowed disabled:opacity-70"
+                      type="submit"
+                      disabled={submitting}
+                    >
+                      {submitting ? "Submitting..." : "Request an invite"}
+                    </button>
+                    {submitError ? (
+                      <p className="text-sm text-red-600">{submitError}</p>
+                    ) : null}
+                  </form>
+                )}
+              </div>
+            </div>
           </div>
         </section>
       </main>
